@@ -1,0 +1,171 @@
+:root {
+  --ink: #1f1f1f;
+  --muted: #6f6e69;
+  --line: #e6e5df;
+  --page: #f6f5f1;
+  --card: #ffffff;
+  --accent: #2a78d6;
+  --note-bg: #eef4fc;
+  --note-border: #b7d1f3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.45;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+header h1 {
+  margin: 0 0 20px;
+  font-size: 1.8rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.card h2 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.control-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.filters-column {
+  width: calc(100% / 3);
+  min-width: 280px;
+}
+
+.note {
+  background: var(--note-bg);
+  border-color: var(--note-border);
+  border-left: 4px solid var(--accent);
+}
+
+.note-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.note-title::before {
+  content: "i";
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-style: italic;
+  font-family: Georgia, serif;
+}
+
+.note-text {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.filters-column .controls {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.row-third-two-thirds {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.row-third-two-thirds > * {
+  width: auto;
+  min-width: 0;
+}
+
+.row-third-two-thirds > .card,
+.row-third-two-thirds > .filters-column > .card:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .filters-column {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .row-third-two-thirds {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section {
+  margin-top: 28px;
+}
+
+.section-controls {
+  margin-bottom: 12px;
+  max-width: 320px;
+}
+
+.tabs {
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.tabs .tab,
+.tabs .tab:last-child,
+.tabs .tab:hover {
+  flex: 0 0 auto;
+  padding: 10px 18px !important;
+  border: none !important;
+  border-bottom: 3px solid transparent !important;
+  background: transparent !important;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.tabs .tab:hover {
+  color: var(--ink);
+}
+
+.tabs .tab.tab--selected,
+.tabs .tab:last-child.tab--selected {
+  border-bottom: 3px solid var(--accent) !important;
+  color: var(--ink);
+}
